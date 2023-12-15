@@ -43,9 +43,18 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         var dir = (_lastPosition - _startPosition);
-        var moveMultiplier = dir.x / Screen.width / 2;
-        var moveDir = Vector3.MoveTowards(_rigidbody.position, _rigidbody.position + Vector3.right * moveMultiplier * _playerRightSpeed * Time.fixedDeltaTime, 1f);
+        if(dir == Vector2.zero)
+        {
+            _rigidbody.velocity = Vector3.zero;
+        }
+        else
+        {
+            var moveMultiplier = dir.x / Screen.width;
+            var moveDir = Vector3.right * moveMultiplier * _playerRightSpeed;
+            _rigidbody.velocity = moveDir;
+        }
+
         var moveForward = Vector3.forward * _playerForwardSpeed * Time.fixedDeltaTime;
-        _rigidbody.MovePosition(moveDir + moveForward);
+        _rigidbody.MovePosition(_rigidbody.position + moveForward);
     }
 }
