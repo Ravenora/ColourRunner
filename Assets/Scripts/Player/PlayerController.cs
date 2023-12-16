@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 _startPosition;
     public Vector2 _lastPosition;
     public Rigidbody _rigidbody;
+    public Material _material;
 
     public float _playerForwardSpeed;
     public float _playerRightSpeed;
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();   
+        _material = GetComponent<Renderer>().material;
     }
 
 
@@ -56,5 +58,13 @@ public class PlayerController : MonoBehaviour
 
         var moveForward = Vector3.forward * _playerForwardSpeed * Time.fixedDeltaTime;
         _rigidbody.MovePosition(_rigidbody.position + moveForward);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.TryGetComponent<Gate>(out Gate gate))
+        {
+            _material.color = gate.Color;
+        }
     }
 }
