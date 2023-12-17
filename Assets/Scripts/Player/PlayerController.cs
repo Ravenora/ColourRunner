@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -12,6 +14,7 @@ public class PlayerController : MonoBehaviour
 
     public float _playerForwardSpeed;
     public float _playerRightSpeed;
+    public TextMeshProUGUI _countText;
 
     void Awake()
     {
@@ -65,6 +68,11 @@ public class PlayerController : MonoBehaviour
         if(other.TryGetComponent<Gate>(out Gate gate))
         {
             _material.color = gate.Color;
+        }
+
+        if(other.gameObject.tag == "Stickman")
+        {
+            _countText.text = (Int32.Parse(_countText.text) + 1).ToString();
         }
     }
 }
