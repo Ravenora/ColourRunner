@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StartCommand : Command
+public class StickmanCommand : Command
 {
     public override void Execute()
     {
-        Debug.Log("Start command");
+        Debug.Log("Stickman Command");
     }
 }

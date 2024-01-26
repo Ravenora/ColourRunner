@@ -17,12 +17,17 @@ public class PlayerControllerView : View
     public float _playerRightSpeed;
     public TextMeshProUGUI _countText;
 
+    public GateSignal GateSignal;
+    public StickmanSignal StickmanSignal;
 
     protected override void Awake()
     {
         base.Awake();
         _rigidbody = GetComponent<Rigidbody>();
         _material = GetComponent<Renderer>().material;
+
+        GateSignal = new GateSignal();
+        StickmanSignal = new StickmanSignal();
     }
 
 
@@ -71,11 +76,13 @@ public class PlayerControllerView : View
         if(other.TryGetComponent<Gate>(out Gate gate))
         {
             _material.color = gate.Color;
+            GateSignal.Dispatch(gate.Color);
         }
 
         if(other.gameObject.tag == "Stickman")
         {
             _countText.text = (Int32.Parse(_countText.text) + 1).ToString();
+            StickmanSignal.Dispatch();
         }
     }
 }

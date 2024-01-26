@@ -3,10 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StartCommand : Command
+public class GateCommand : Command
 {
+    [Inject]
+    public Color GateColor { get; set; }
+
     public override void Execute()
     {
-        Debug.Log("Start command");
+        Debug.Log(GateColor);
     }
 }

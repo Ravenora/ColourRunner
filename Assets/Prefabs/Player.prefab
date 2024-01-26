@@ -249,8 +249,8 @@ GameObject:
   - component: {fileID: 649787111517316941}
   - component: {fileID: 8154324082174221424}
   - component: {fileID: 3516957041668100880}
-  - component: {fileID: 589095082971931762}
   - component: {fileID: 660484884567239720}
+  - component: {fileID: 589095082971931762}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -375,25 +375,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0.46, z: 0}
---- !u!114 &589095082971931762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2021875672472161471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94e3578f183c710409a1544a853232f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _startPosition: {x: 0, y: 0}
-  _lastPosition: {x: 0, y: 0}
-  _rigidbody: {fileID: 0}
-  _material: {fileID: 0}
-  _playerForwardSpeed: 8
-  _playerRightSpeed: 25
-  _countText: {fileID: 525032854302312067}
 --- !u!95 &660484884567239720
 Animator:
   serializedVersion: 5
@@ -415,6 +396,25 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &589095082971931762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021875672472161471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94e3578f183c710409a1544a853232f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startPosition: {x: 0, y: 0}
+  _lastPosition: {x: 0, y: 0}
+  _rigidbody: {fileID: 0}
+  _material: {fileID: 0}
+  _playerForwardSpeed: 8
+  _playerRightSpeed: 25
+  _countText: {fileID: 525032854302312067}
 --- !u!1 &2525922162487204208
 GameObject:
   m_ObjectHideFlags: 0

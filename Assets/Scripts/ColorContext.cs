@@ -1,6 +1,7 @@
 using strange.extensions.command.api;
 using strange.extensions.command.impl;
 using strange.extensions.context.impl;
+using strange.extensions.signal.impl;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,12 +27,13 @@ public class ColorContext : MVCSContext
     {
         base.mapBindings();
 
-        injectionBinder.Bind<GateSignal>().To<GateSignal>();
-        injectionBinder.Bind<StickmanSignal>().To<StickmanSignal>();
 
         commandBinder.Bind<StartSignal>().To<StartCommand>();
+        commandBinder.Bind<GateSignal>().To<GateCommand>();
+        commandBinder.Bind<StickmanSignal>().To<StickmanCommand>();
 
         mediationBinder.Bind<PlayerControllerView>().To<PlayerControllerMediator>();
+
     }
 
     override public void Launch()
