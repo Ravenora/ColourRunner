@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
+using strange.extensions.mediation.impl;
 
-public class PlayerController : MonoBehaviour
+public class PlayerControllerView : View
 {
     public Vector2 _startPosition;
     public Vector2 _lastPosition;
@@ -16,9 +17,11 @@ public class PlayerController : MonoBehaviour
     public float _playerRightSpeed;
     public TextMeshProUGUI _countText;
 
-    void Awake()
+
+    protected override void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody>();   
+        base.Awake();
+        _rigidbody = GetComponent<Rigidbody>();
         _material = GetComponent<Renderer>().material;
     }
 

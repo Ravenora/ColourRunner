@@ -26,7 +26,12 @@ public class ColorContext : MVCSContext
     {
         base.mapBindings();
 
+        injectionBinder.Bind<GateSignal>().To<GateSignal>();
+        injectionBinder.Bind<StickmanSignal>().To<StickmanSignal>();
+
         commandBinder.Bind<StartSignal>().To<StartCommand>();
+
+        mediationBinder.Bind<PlayerControllerView>().To<PlayerControllerMediator>();
     }
 
     override public void Launch()
